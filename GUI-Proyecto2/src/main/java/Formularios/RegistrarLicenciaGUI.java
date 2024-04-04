@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
+
+import Control.ControlLicencia;
+import DTOs.Persona;
+
 
 /**
  *
@@ -21,11 +21,44 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         String RFC = this.tfRFC.getText();
         int vigencia = this.cbVigencia.getSelectedIndex();
         String tipo = (String) this.cbTipo.getSelectedItem();
+        ControlLicencia cl = new ControlLicencia();
 
     }
-    public void calcularCosto(){
-        
+    public void calcularCosto() {
+    int vigenciaIndex = this.cbVigencia.getSelectedIndex();
+    String tipo = (String) this.cbTipo.getSelectedItem();
+    
+    int costo = 0;
+    int costoNormal = 0;
+    int costoDiscapacitado = 0;
+    
+    switch (vigenciaIndex) {
+        case 0: // 1 Año
+            costoNormal = 600;
+            costoDiscapacitado = 200;
+            break;
+        case 1: // 2 Años
+            costoNormal = 900;
+            costoDiscapacitado = 500;
+            break;
+        case 2: // 3 Años
+            costoNormal = 1100;
+            costoDiscapacitado = 700;
+            break;
+        default:
+            break;
     }
+    
+    if (tipo.equals("Normal")) {
+        costo = costoNormal;
+    } else if (tipo.equals("Discapacitado")) {
+        costo = costoDiscapacitado;
+    }
+    
+    // Mostrar el costo en el JTextArea taCosto
+    taCosto.setText("Costo: $" + costo);
+}
+
     
 
     /**
