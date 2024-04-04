@@ -32,7 +32,7 @@ public class MenuGUI extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        menuItemRegistrarLicencia = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
@@ -53,14 +53,14 @@ public class MenuGUI extends javax.swing.JFrame {
         fileMenu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         fileMenu.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Registrar licencia");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRegistrarLicencia.setMnemonic('o');
+        menuItemRegistrarLicencia.setText("Registrar licencia");
+        menuItemRegistrarLicencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
+                menuItemRegistrarLicenciaActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        fileMenu.add(menuItemRegistrarLicencia);
 
         menuBar.add(fileMenu);
 
@@ -113,11 +113,11 @@ public class MenuGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+    private void menuItemRegistrarLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarLicenciaActionPerformed
         // TODO add your handling code here:
         RegistrarLicenciaGUI rl = new RegistrarLicenciaGUI();
         rl.setVisible(true);
-    }//GEN-LAST:event_openMenuItemActionPerformed
+    }//GEN-LAST:event_menuItemRegistrarLicenciaActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -167,7 +167,7 @@ public class MenuGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem menuItemRegistrarLicencia;
     // End of variables declaration//GEN-END:variables
 
 }

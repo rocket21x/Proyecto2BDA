@@ -1,4 +1,4 @@
-package dominio;
+package DTOs;
 
 import jakarta.persistence.*;
 import java.io.Serializable;

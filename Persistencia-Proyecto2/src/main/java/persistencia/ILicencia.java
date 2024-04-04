@@ -1,6 +1,6 @@
 package persistencia;
 
-import dominio.Persona;
+import DTOs.Persona;
 import java.math.BigDecimal;
 import java.util.Date;
 
