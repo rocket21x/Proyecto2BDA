@@ -5,7 +5,7 @@ import DTOs.Persona;
 
 
 /**
- *
+ * El
  * @author jesus
  */
 public class RegistrarLicenciaGUI extends javax.swing.JFrame {
