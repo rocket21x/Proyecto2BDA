@@ -5,7 +5,7 @@
 package com.mycompany.persistencia.proyecto2;
 
 /**
- *
+ * 
  * @author jesus
  */
 public class PersistenciaProyecto2 {
