@@ -21,12 +21,12 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         String RFC = this.tfRFC.getText();
         int vigencia = this.cbVigencia.getSelectedIndex();
         String tipo = (String) this.cbTipo.getSelectedItem();
-        
-        
-        
-        
+
+    }
+    public void calcularCosto(){
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +63,7 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         tfRFC.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tfRFC.setText("RFC");
 
-        cbVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         cbVigencia.setToolTipText("");
         cbVigencia.setName(""); // NOI18N
 
@@ -73,7 +73,7 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("Vigencia");
 
-        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Discapacitado" }));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);

@@ -5,33 +5,32 @@
 package Control;
 
 import java.time.LocalDate;
+import DTOs.*;
+import DAOs.*;
 
 /**
  *
  * @author jesus
  */
 public class ControlLicencia {
+    private LicenciaDAO licenciaDAO;
     
-    
-    
-    public void insertarCliente(String nombres, String apellidoPaterno, String apellidoMaterno, String calle, String numCasa, String cp, LocalDate fechaNacimiento, int edad) {
-        Cliente cliente = new Cliente();
-        cliente.setNombres(nombres);
-        cliente.setApellidoPaterno(apellidoPaterno);
-        cliente.setApellidoMaterno(apellidoMaterno);
-        cliente.setCalle(calle);
-        cliente.setNumCasa(numCasa);
-        cliente.setCp(cp);
-        cliente.setFechaNacimiento(fechaNacimiento);
-        cliente.setEdad(edad);
- 
+    public void RegistrarLicencia(Persona RFC,int vigencia, String tipo){
+        Licencia lic = new Licencia();
+        lic.setPersona(RFC);
+        lic.setVigencia(vigencia);
+        lic.setTipo(tipo);
         try {
-            clienteDAO.insertarCliente(cliente);
+            licenciaDAO.RegistrarLicencia(lic);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al insetar Cliente");
+            System.out.println("Error al insetar licencia");
         }
+        
+        
     }
+    
+    
     
     
   
