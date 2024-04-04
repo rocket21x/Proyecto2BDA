@@ -23,7 +23,7 @@ public class LicenciaDAO {
             statement.setInt(1, lic.getVigencia());
             statement.setBigDecimal(2, lic.getMonto());
             statement.setString(3, lic.getTipo());
-            statement.String(4, lic.getPersona().getRFC();
+            statement.setString(4, lic.getPersona().getRFC());
         } catch(SQLException e){
             e.printStackTrace();
         }
