@@ -20,10 +20,10 @@ public class LicenciaDAO {
         try (Connection connection = ConexionBD.obtenerConexion(); 
              PreparedStatement statement = connection.prepareStatement(
                      "INSERT INTO Cliente (Vigencia,Monto,Tipo,RFC) VALUES (?, ?, ?, ?)")) {
-            statement.setString(1, lic.getVigencia());
-            statement.setString(1, lic.getMonto());
-            statement.setString(1, lic.getTipo());
-            statement.setString(1, lic.getPersona());
+            statement.setInt(1, lic.getVigencia());
+            statement.setBigDecimal(2, lic.getMonto());
+            statement.setString(3, lic.getTipo());
+            statement.String(4, lic.getPersona().getRFC();
         } catch(SQLException e){
             e.printStackTrace();
         }

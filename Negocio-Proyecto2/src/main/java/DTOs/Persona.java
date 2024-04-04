@@ -2,6 +2,7 @@ package DTOs;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Persona implements Serializable {
     private String nombreCompleto;
     
     @Column(name = "FechaNacimiento", nullable = false)
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     
     @Column(name = "Telefono", length = 20)
     private String telefono;
@@ -31,7 +32,7 @@ public class Persona implements Serializable {
         // Constructor vacío requerido por JPA
     }
 
-    public Persona(String RFC, String nombreCompleto, Date fechaNacimiento, String telefono) {
+    public Persona(String RFC, String nombreCompleto, LocalDate fechaNacimiento, String telefono) {
         this.RFC = RFC;
         this.nombreCompleto = nombreCompleto;
         this.fechaNacimiento = fechaNacimiento;
@@ -54,11 +55,11 @@ public class Persona implements Serializable {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
