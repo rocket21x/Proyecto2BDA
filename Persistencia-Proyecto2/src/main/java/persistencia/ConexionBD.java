@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package persistencia;
 
 /**
@@ -19,8 +15,8 @@ import java.sql.SQLException;
 public class ConexionBD {
     
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/proyectobanco1?user=root";
-    private static final String USER = "root";
-    private static final String PASSWORD = "Imperial99";
+    private static final String USER = "agencia";
+    private static final String PASSWORD = "12345678";
     
             //"Imperial99" jdbc:mysql://127.0.0.1:3306/?user=root;
 

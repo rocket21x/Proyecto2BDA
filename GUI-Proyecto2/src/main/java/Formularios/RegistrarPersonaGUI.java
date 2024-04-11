@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
 
+import DTOss.Persona;
 import java.time.LocalDate;
 import java.util.Date;
+import DAOs.PersonaDAO;
 
 /**
  *
@@ -25,7 +23,12 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
         LocalDate fechaNacimiento = this.dpFechaNacimiento.getDate();
         String telefono = this.tfTelefono.getText();
         
-        
+        // Crear una instancia de Persona con los datos recolectados
+    Persona persona = new Persona(RFC, nombreCompleto, fechaNacimiento, telefono);
+    
+    // Llamar al método RegistrarPersona del PersonaDAO para insertar la persona en la base de datos
+    PersonaDAO personaDAO = new PersonaDAO();
+    personaDAO.RegistrarPersona(persona);
         
         
 
@@ -54,8 +57,8 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setText("Registrar Persona");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
 
         jLabel2.setText("RFC");
 
@@ -80,6 +83,11 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +163,10 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
     private void tfNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreCompletoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNombreCompletoActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        Registro();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
    
    
