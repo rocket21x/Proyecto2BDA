@@ -1,4 +1,4 @@
-package persistencia;
+package Control;
 
 import DTOs.Persona;
 import java.math.BigDecimal;
