@@ -1,6 +1,6 @@
 package DAOs;
 
-import DTOs.Persona;
+import DTOss.Persona;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

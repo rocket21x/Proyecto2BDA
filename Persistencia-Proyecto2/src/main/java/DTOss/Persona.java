@@ -1,11 +1,22 @@
-package DTOs;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DTOss;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+/**
+ *
+ * @author jesus
+ */
 @Entity
 @Table(name="Persona")
 public class Persona implements Serializable {
@@ -26,7 +37,7 @@ public class Persona implements Serializable {
     private String telefono;
 
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
-    private List<Licencia> licencias;
+    private List<DTOss.Licencia> licencias;
     
     public Persona() {
         // Constructor vacío requerido por JPA
@@ -71,11 +82,11 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public List<Licencia> getLicencias() {
+    public List<DTOss.Licencia> getLicencias() {
         return licencias;
     }
 
-    public void setLicencias(List<Licencia> licencias) {
+    public void setLicencias(List<DTOss.Licencia> licencias) {
         this.licencias = licencias;
     }
 
@@ -86,20 +97,21 @@ public class Persona implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Persona)) {
-            return false;
-        }
-        Persona other = (Persona) object;
-        if ((this.RFC == null && other.RFC != null) || (this.RFC != null && !this.RFC.equals(other.RFC))) {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object object) {
+//        if (!(object instanceof DTOs.Persona)) {
+//            return false;
+//        }
+//        DTOs.Persona other = (DTOs.Persona) object;
+//        if ((this.RFC == null && other.RFC != null) || (this.RFC != null && !this.RFC.equals(other.RFC))) {
+//            return false;
+//        }
+//        return true;
+//    }
 
     @Override
     public String toString() {
         return "dominio.Persona[ RFC=" + RFC + " ]";
     }
+    
 }

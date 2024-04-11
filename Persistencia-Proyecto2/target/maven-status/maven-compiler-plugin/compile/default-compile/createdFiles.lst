@@ -1,0 +1,8 @@
+DTOss\Persona_.class
+DTOss\Licencia_.class
+com\mycompany\persistencia\proyecto2\PersistenciaProyecto2.class
+DAOs\LicenciaDAO.class
+DAOs\PersonaDAO.class
+DTOss\Persona.class
+DTOss\Licencia.class
+persistencia\ConexionBD.class

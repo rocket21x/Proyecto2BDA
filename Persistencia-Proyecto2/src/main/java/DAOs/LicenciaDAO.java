@@ -4,7 +4,7 @@
  */
 package DAOs;
 
-import DTOs.Licencia;
+import DTOss.Licencia;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

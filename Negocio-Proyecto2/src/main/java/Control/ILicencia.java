@@ -1,6 +1,6 @@
 package Control;
 
-import DTOs.Persona;
+import DTOss.Persona;
 import java.math.BigDecimal;
 import java.util.Date;
 

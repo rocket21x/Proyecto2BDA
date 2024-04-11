@@ -1,15 +1,32 @@
-package DTOs;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DTOss;
 
-import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+/**
+ *
+ * @author jesus
+ */
 @Entity
 @Table(name="Licencia")
 public class Licencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
+   
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -99,20 +116,21 @@ public class Licencia implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Licencia)) {
-            return false;
-        }
-        Licencia other = (Licencia) object;
-        if ((this.numeroLicencia == null && other.numeroLicencia != null) || (this.numeroLicencia != null && !this.numeroLicencia.equals(other.numeroLicencia))) {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object object) {
+//        if (!(object instanceof DTOs.Licencia)) {
+//            return false;
+//        }
+//        DTOs.Licencia other = (DTOs.Licencia) object;
+//        if ((this.numeroLicencia == null && other.numeroLicencia != null) || (this.numeroLicencia != null && !this.numeroLicencia.equals(other.numeroLicencia))) {
+//            return false;
+//        }
+//        return true;
+//    }
 
     @Override
     public String toString() {
         return "dominio.Licencia[ numeroLicencia=" + numeroLicencia + " ]";
     }
+    
 }

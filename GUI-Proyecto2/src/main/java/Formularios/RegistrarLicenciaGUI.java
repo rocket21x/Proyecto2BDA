@@ -1,7 +1,7 @@
 package Formularios;
 
 import Control.ControlLicencia;
-import DTOs.Persona;
+import DTOss.Persona;
 
 
 /**
