@@ -18,9 +18,9 @@ public class ControlLicencia {
     
     
     
-    public void RegistrarLicencia(Persona RFC,int vigencia, String tipo){
+    public void RegistrarLicencia(String RFC,int vigencia, String tipo){
         Licencia lic = new Licencia();
-        lic.setPersona(RFC);
+        lic.setRFC(RFC);
         lic.setVigencia(vigencia);
         lic.setTipo(tipo);
         try {
@@ -37,10 +37,10 @@ public class ControlLicencia {
         // Verificar si existe una persona con el RFC especificado
         boolean personaExiste = licenciaDAO.existePersonaConRFC(RFC);
         if (personaExiste) {
-            System.out.println("La licencia es válida para el RFC " + RFC);
+            System.out.println("La licencia es valida para el RFC " + RFC);
             return true; // La licencia es válida si la persona existe en la base de datos
         } else {
-            System.out.println("La licencia no es válida para el RFC " + RFC + " (no se encontró la persona)");
+            System.out.println("La licencia no es valida para el RFC " + RFC + " (no se encontro la persona)");
             return false; // La licencia no es válida si la persona no existe en la base de datos
         }
     } catch (Exception e) {
