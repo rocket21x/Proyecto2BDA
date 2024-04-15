@@ -30,18 +30,18 @@ public class ConexionBD {
 //        return DriverManager.getConnection(URL, USER, PASSWORD);
 //    }
     public static Connection obtenerConexion() throws SQLException {
-        Connection conexion = null;
-        // Registrar el controlador JDBC
-        //Class.forName("com.mysql.cj.jdbc.Driver");
-        // Establecer la conexión a la base de datos
-        conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-        System.out.println("Conexión exitosa a la base de datos.");
-        // Después de establecer la conexión a la base de datos
-        Connection connection = ConexionBD.obtenerConexion();
-        PreparedStatement statement = connection.prepareStatement("USE agenciafiscal;");
-        statement.execute(); // Ejecutar la instrucción USE para seleccionar la base de datos
+    Connection conexion = null;
+    // Registrar el controlador JDBC
+    //Class.forName("com.mysql.cj.jdbc.Driver");
+    // Establecer la conexión a la base de datos
+    conexion = DriverManager.getConnection(URL, USER, PASSWORD);
+    System.out.println("Conexión exitosa a la base de datos.");
 
-        return conexion;
-    }
+    PreparedStatement statement = conexion.prepareStatement("USE agenciafiscal;");
+    statement.execute(); // Ejecutar la instrucción USE para seleccionar la base de datos
+
+    return conexion;
+}
+
 
 }
