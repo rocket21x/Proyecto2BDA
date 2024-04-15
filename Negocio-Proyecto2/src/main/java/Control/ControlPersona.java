@@ -16,7 +16,13 @@ public class ControlPersona {
     
     private PersonaDAO personaDAO;
     
-    public void RegistrarLicencia(String RFC, String nombreCompleto,LocalDate fechaNacimiento, String Telefono){
+
+    // Constructor
+    public ControlPersona() {
+        this.personaDAO = new PersonaDAO(); // Inicializa personaDAO
+    }
+    
+    public void RegistrarPersona(String RFC, String nombreCompleto,LocalDate fechaNacimiento, String Telefono){
         Persona per = new Persona();
         per.setRFC(RFC);
         per.setNombreCompleto(nombreCompleto);
@@ -28,7 +34,7 @@ public class ControlPersona {
             personaDAO.RegistrarPersona(per);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error al insetar licencia");
+            System.out.println("Error al insetar Persona");
         }
     
     }

@@ -1,5 +1,7 @@
 package Formularios;
 
+import Control.ControlLicencia;
+import Control.ControlPersona;
 import DTOss.Persona;
 import java.time.LocalDate;
 import java.util.Date;
@@ -27,8 +29,10 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
     Persona persona = new Persona(RFC, nombreCompleto, fechaNacimiento, telefono);
     
     // Llamar al método RegistrarPersona del PersonaDAO para insertar la persona en la base de datos
-    PersonaDAO personaDAO = new PersonaDAO();
-    personaDAO.RegistrarPersona(persona);
+    
+    ControlPersona cl = new ControlPersona();
+
+    cl.RegistrarPersona(RFC, nombreCompleto, fechaNacimiento, telefono);
         
         
 
