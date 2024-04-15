@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
 package Formularios;
 
 /**
@@ -35,10 +31,11 @@ public class MenuGUI extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         menuItemRegistrarLicencia = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
+        MenuAsignarPlacas = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menuConsultas = new javax.swing.JMenu();
+        jMenuModulo = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         jMenu1.setText("File");
@@ -79,9 +76,14 @@ public class MenuGUI extends javax.swing.JFrame {
         editMenu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         editMenu.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("1");
-        editMenu.add(cutMenuItem);
+        MenuAsignarPlacas.setMnemonic('t');
+        MenuAsignarPlacas.setText("Asignar Placas");
+        MenuAsignarPlacas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAsignarPlacasActionPerformed(evt);
+            }
+        });
+        editMenu.add(MenuAsignarPlacas);
 
         menuBar.add(editMenu);
 
@@ -96,10 +98,19 @@ public class MenuGUI extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
-        jMenu3.setText("Historial");
-        jMenu3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jMenu3.setPreferredSize(new java.awt.Dimension(150, 50));
-        menuBar.add(jMenu3);
+        menuConsultas.setText("Consultas");
+        menuConsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        menuConsultas.setPreferredSize(new java.awt.Dimension(150, 50));
+
+        jMenuModulo.setText("Modulo de consultas");
+        jMenuModulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModuloActionPerformed(evt);
+            }
+        });
+        menuConsultas.add(jMenuModulo);
+
+        menuBar.add(menuConsultas);
 
         jMenu4.setText("Reportes");
         jMenu4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -133,6 +144,15 @@ public class MenuGUI extends javax.swing.JFrame {
         RegistrarPersonaGUI rp = new RegistrarPersonaGUI();
         rp.setVisible(true);
     }//GEN-LAST:event_btnRegistrarPersonaActionPerformed
+
+    private void jMenuModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModuloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuModuloActionPerformed
+
+    private void MenuAsignarPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAsignarPlacasActionPerformed
+        AsignarPlacasGUI ap = new AsignarPlacasGUI();
+        ap.setVisible(true);
+    }//GEN-LAST:event_MenuAsignarPlacasActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -170,19 +190,20 @@ public class MenuGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuAsignarPlacas;
     private javax.swing.JButton btnRegistrarPersona;
     private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuModulo;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuConsultas;
     private javax.swing.JMenuItem menuItemRegistrarLicencia;
     // End of variables declaration//GEN-END:variables
 
