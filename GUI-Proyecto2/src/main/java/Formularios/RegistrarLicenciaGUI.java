@@ -17,11 +17,25 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         initComponents();
     }
     
+    
     public void Registro(){
         String RFC = this.tfRFC.getText();
         int vigencia = this.cbVigencia.getSelectedIndex();
         String tipo = (String) this.cbTipo.getSelectedItem();
+        
         ControlLicencia cl = new ControlLicencia();
+        
+        boolean exiterfc = cl.ValidarLicencia(RFC);
+        
+        if (exiterfc) {
+            Persona p1 = cl.ObtenerPersonaPorRFC(RFC);
+            cl.RegistrarLicencia(p1, vigencia, tipo);
+            System.out.println("Licencia Registrada");
+        }
+        else{
+            System.out.println("Licencia NO REGISTRADA");
+        }
+        
 
     }
     public void calcularCosto() {
@@ -87,24 +101,24 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 26)); // NOI18N
         jLabel3.setText("Registrar Licencia");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 26)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Datos del cliente");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
         tfRFC.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tfRFC.setText("RFC");
 
         cbVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
-        cbVigencia.setToolTipText("");
         cbVigencia.setName(""); // NOI18N
+        cbVigencia.setToolTipText("");
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setText("Tipo");
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("Vigencia");
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
 
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Discapacitado" }));
 
@@ -118,14 +132,24 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         taCosto.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(taCosto);
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setText("Costo");
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
         btnCancelar.setText("Cancelar");
 
         btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,6 +226,16 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        Registro();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+        calcularCosto();
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     
 
