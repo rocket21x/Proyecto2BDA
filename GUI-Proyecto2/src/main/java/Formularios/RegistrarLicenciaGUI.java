@@ -26,15 +26,17 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         ControlLicencia cl = new ControlLicencia();
         
         boolean exiterfc = cl.ValidarLicencia(RFC);
+        cl.RegistrarLicencia(RFC, vigencia, tipo);
+            
         
-        if (exiterfc) {
-            Persona p1 = cl.ObtenerPersonaPorRFC(RFC);
-            cl.RegistrarLicencia(p1, vigencia, tipo);
-            System.out.println("Licencia Registrada");
-        }
-        else{
-            System.out.println("Licencia NO REGISTRADA");
-        }
+//        if (exiterfc) {
+//            
+//            cl.RegistrarLicencia(RFC, vigencia, tipo);
+//            System.out.println("Licencia Registrada");
+//        }
+//        else{
+//            System.out.println("Licencia NO REGISTRADA");
+//        }
         
 
     }

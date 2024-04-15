@@ -47,18 +47,18 @@ public class Licencia implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "RFC")
-    private Persona persona;
+    private String RFC;
     
     public Licencia() {
         // Constructor vacío requerido por JPA
     }
 
-    public Licencia(Date fechaExpedicion, Integer vigencia, BigDecimal monto, String tipo, Persona persona) {
+    public Licencia(Date fechaExpedicion, Integer vigencia, BigDecimal monto, String tipo, String RFC) {
         this.fechaExpedicion = fechaExpedicion;
         this.vigencia = vigencia;
         this.monto = monto;
         this.tipo = tipo;
-        this.persona = persona;
+        this.RFC = RFC;
     }
 
     public Integer getNumeroLicencia() {
@@ -101,12 +101,12 @@ public class Licencia implements Serializable {
         this.tipo = tipo;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public String getRFC() {
+        return RFC;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setRFC(String RFC) {
+        this.RFC = RFC;
     }
 
     @Override

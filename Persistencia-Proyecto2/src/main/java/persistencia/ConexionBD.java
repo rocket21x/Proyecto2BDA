@@ -35,7 +35,7 @@ public class ConexionBD {
     //Class.forName("com.mysql.cj.jdbc.Driver");
     // Establecer la conexión a la base de datos
     conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-    System.out.println("Conexión exitosa a la base de datos.");
+    System.out.println("Conexion exitosa a la base de datos.");
 
     PreparedStatement statement = conexion.prepareStatement("USE agenciafiscal;");
     statement.execute(); // Ejecutar la instrucción USE para seleccionar la base de datos
