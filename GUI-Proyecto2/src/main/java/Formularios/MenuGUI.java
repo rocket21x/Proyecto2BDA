@@ -30,6 +30,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
+        btnRegistrarPersona = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         menuItemRegistrarLicencia = new javax.swing.JMenuItem();
@@ -47,6 +48,15 @@ public class MenuGUI extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnRegistrarPersona.setText("Registrar Persona");
+        btnRegistrarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPersonaActionPerformed(evt);
+            }
+        });
+        desktopPane.add(btnRegistrarPersona);
+        btnRegistrarPersona.setBounds(100, 160, 150, 23);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Licencias");
@@ -119,6 +129,11 @@ public class MenuGUI extends javax.swing.JFrame {
         rl.setVisible(true);
     }//GEN-LAST:event_menuItemRegistrarLicenciaActionPerformed
 
+    private void btnRegistrarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPersonaActionPerformed
+        RegistrarPersonaGUI rp = new RegistrarPersonaGUI();
+        rp.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarPersonaActionPerformed
+
 //    /**
 //     * @param args the command line arguments
 //     */
@@ -155,6 +170,7 @@ public class MenuGUI extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarPersona;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
