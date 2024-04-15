@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ConexionBD {
 
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/?user=agenciafiscal";
-    private static final String USER = "agenciafiscal";
+    private static final String USER = "agencia";
     private static final String PASSWORD = "12345678";
 
     //"Imperial99" jdbc:mysql://127.0.0.1:3306/?user=root;
