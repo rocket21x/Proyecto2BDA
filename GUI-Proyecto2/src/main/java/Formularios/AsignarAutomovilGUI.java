@@ -1,6 +1,8 @@
 package Formularios;
 
+import Control.ControlAutomovil;
 import Control.ControlPlacas;
+import DTOss.Automovil;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,19 +29,17 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btnSolicitarPlacas = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        txtNumeroSerie = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtLinea = new javax.swing.JTextField();
         txtColor = new javax.swing.JTextField();
-        txtNumeroPlacasAnteriores = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtNumSerie = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,17 +48,13 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
 
         jLabel2.setText("Marca");
 
-        jLabel3.setText("Numero Serie");
-
         jLabel4.setText("Linea");
 
         jLabel5.setText("Color");
 
         jLabel6.setText("Modelo");
 
-        jLabel7.setText("Número Placas Anteriores");
-
-        btnSolicitarPlacas.setText("Solicitar Placas");
+        btnSolicitarPlacas.setText("Registrar Carro");
         btnSolicitarPlacas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSolicitarPlacasActionPerformed(evt);
@@ -66,6 +62,8 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
         });
 
         jToggleButton1.setText("Cancelar");
+
+        jLabel3.setText("Numero Serie");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,22 +78,20 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3))
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNumeroPlacasAnteriores, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                             .addComponent(txtColor, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLinea, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNumeroSerie, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(txtNumSerie, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addComponent(jLabel1)))
@@ -109,7 +105,7 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNumeroSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -126,11 +122,7 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNumeroPlacasAnteriores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSolicitarPlacas)
                     .addComponent(jToggleButton1))
@@ -142,28 +134,45 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
 
     private void btnSolicitarPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarPlacasActionPerformed
         // Validar los campos del formulario
-    if (camposValidos()) {
-        // Obtener valores de los campos del formulario
-        String numeroSerie = txtNumeroSerie.getText();
-        String marca = txtMarca.getText();
-        String linea = txtLinea.getText();
-        String color = txtColor.getText();
-        int modelo = Integer.parseInt(txtModelo.getText());
-        String numeroPlacasAnteriores = txtNumeroPlacasAnteriores.getText();
+        if (camposValidos()) {
+            // Obtener valores de los campos del formulario}
+            String numSerie = txtNumSerie.getText();
+            String marca = txtMarca.getText();
+            String linea = txtLinea.getText();
+            String color = txtColor.getText();
+            int modelo;
+            try {
+                modelo = Integer.parseInt(txtModelo.getText());
+            } catch (NumberFormatException e) {
+                // Manejar el error de conversión
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un número válido en el campo de modelo.", "Error", JOptionPane.ERROR_MESSAGE);
+                return; // Salir del método para evitar continuar con el proceso incorrecto
+            }
 
-        // Enviar la solicitud de placas al sistema (usando la lógica de control adecuada)
-        ControlPlacas controlPlacas = new ControlPlacas();
-        // Aquí deberías llamar al método correspondiente en PlacasControl para solicitar las placas
-        
-        // Mostrar mensaje de confirmación
-        JOptionPane.showMessageDialog(this, "Solicitud de placas enviada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        // Mostrar mensaje de error si los campos no son válidos
-        JOptionPane.showMessageDialog(this, "Por favor complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+            // Crear un DTO con los datos del automóvil
+            Automovil automovil = new Automovil();
+            automovil.setNumeroSerie(numSerie);
+            automovil.setMarca(marca);
+            automovil.setLinea(linea);
+            automovil.setColor(color);
+            automovil.setModelo(modelo);
+
+            // Enviar la solicitud de registro al sistema (usando la lógica de control adecuada)
+            ControlAutomovil automovilControl = new ControlAutomovil();
+            boolean registroExitoso = automovilControl.registrarAutomovil(automovil);
+
+            // Mostrar mensaje de confirmación o error
+            if (registroExitoso) {
+                JOptionPane.showMessageDialog(this, "Automóvil registrado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al registrar el automóvil.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            //Mostrar mensaje de error si los campos no son válidos
+            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnSolicitarPlacasActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSolicitarPlacas;
@@ -173,33 +182,24 @@ public class AsignarAutomovilGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtLinea;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtNumeroPlacasAnteriores;
-    private javax.swing.JTextField txtNumeroSerie;
+    private javax.swing.JTextField txtNumSerie;
     // End of variables declaration//GEN-END:variables
 
     private boolean camposValidos() {
-    // Verificar que los campos obligatorios estén llenos
-    if (txtNumeroSerie.getText().isEmpty() ||
-        txtMarca.getText().isEmpty() ||
-        txtLinea.getText().isEmpty() ||
-        txtColor.getText().isEmpty() ||
-        txtModelo.getText().isEmpty()) {
-        return false;
-    }
-
-    // Si el automóvil es usado, verificar que el campo de placas anteriores también esté lleno
-    if (!txtNumeroPlacasAnteriores.getText().isEmpty()) {
+        // Verificar que los campos obligatorios estén llenos
+        if (txtMarca.getText().isEmpty()
+                || txtLinea.getText().isEmpty()
+                || txtColor.getText().isEmpty()
+                || txtModelo.getText().isEmpty()) {
+            return false;
+        }
+        // Si el automóvil es nuevo, no se requiere el campo de placas anteriores
         return true;
     }
-
-    // Si el automóvil es nuevo, no se requiere el campo de placas anteriores
-    return true;
-}
- // Test
+    // Test
 }

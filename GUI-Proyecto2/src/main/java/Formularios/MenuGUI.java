@@ -33,7 +33,7 @@ public class MenuGUI extends javax.swing.JFrame {
         editMenu = new javax.swing.JMenu();
         MenuAsignarPlacas = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
+        menuRegistrarAuto = new javax.swing.JMenuItem();
         menuConsultas = new javax.swing.JMenu();
         jMenuModulo = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -92,9 +92,14 @@ public class MenuGUI extends javax.swing.JFrame {
         helpMenu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         helpMenu.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("1");
-        helpMenu.add(contentMenuItem);
+        menuRegistrarAuto.setMnemonic('c');
+        menuRegistrarAuto.setText("Registrar Automovil");
+        menuRegistrarAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRegistrarAutoActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuRegistrarAuto);
 
         menuBar.add(helpMenu);
 
@@ -157,6 +162,11 @@ public class MenuGUI extends javax.swing.JFrame {
         ap.setVisible(true);
     }//GEN-LAST:event_MenuAsignarPlacasActionPerformed
 
+    private void menuRegistrarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegistrarAutoActionPerformed
+        AsignarAutomovilGUI ra = new AsignarAutomovilGUI();
+        ra.setVisible(true);
+    }//GEN-LAST:event_menuRegistrarAutoActionPerformed
+
 //    /**
 //     * @param args the command line arguments
 //     */
@@ -195,7 +205,6 @@ public class MenuGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuAsignarPlacas;
     private javax.swing.JButton btnRegistrarPersona;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
@@ -208,6 +217,7 @@ public class MenuGUI extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuConsultas;
     private javax.swing.JMenuItem menuItemRegistrarLicencia;
+    private javax.swing.JMenuItem menuRegistrarAuto;
     // End of variables declaration//GEN-END:variables
 
 }

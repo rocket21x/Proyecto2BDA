@@ -1,11 +1,14 @@
 DTOss\Placas.class
 DTOss\Persona_.class
-DTOss\Licencia_.class
 com\mycompany\persistencia\proyecto2\PersistenciaProyecto2.class
+DTOss\Licencia.class
+DAOs\AutomovilDAO.class
+DTOss\Automovil_.class
+DTOss\Placas_.class
+DTOss\Licencia_.class
 DAOs\PlacasDAO.class
 DAOs\LicenciaDAO.class
 DAOs\PersonaDAO.class
+DTOss\Automovil.class
 DTOss\Persona.class
-DTOss\Licencia.class
 persistencia\ConexionBD.class
-DTOss\Placas_.class

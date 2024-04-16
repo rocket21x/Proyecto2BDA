@@ -13,7 +13,7 @@ public class ControlLicencia {
     private LicenciaDAO licenciaDAO;
 
     public ControlLicencia() {
-        this.licenciaDAO = new LicenciaDAO();;
+        this.licenciaDAO = new LicenciaDAO();
     }
 
     

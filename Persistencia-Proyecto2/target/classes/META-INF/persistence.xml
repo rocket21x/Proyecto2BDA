@@ -6,6 +6,7 @@
     <class>DTOss.Persona</class>
     <class>DTOss.Placa</class>
     <class>DTOss.Placas</class>
+    <class>DTOss.Automovil</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mysql?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="agenciafiscal"/>
