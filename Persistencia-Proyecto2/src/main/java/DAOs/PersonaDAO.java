@@ -13,7 +13,10 @@ import persistencia.ConexionBD;
  * @author jesus
  */
 public class PersonaDAO {
-
+    /**
+     * 
+     * @param p 
+     */
     public void RegistrarPersona(Persona p) {
         try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO Persona (RFC, NombreCompleto, FechaNacimiento, Telefono) VALUES (?, ?, ?, ?)")) {
