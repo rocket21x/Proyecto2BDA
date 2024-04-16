@@ -198,5 +198,5 @@ public class AsignarPlacasGUI extends javax.swing.JFrame {
     // Si el automóvil es nuevo, no se requiere el campo de placas anteriores
     return true;
 }
-
+ // Test
 }
