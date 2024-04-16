@@ -17,11 +17,20 @@ public class ControlPersona {
     private PersonaDAO personaDAO;
     
 
-    // Constructor
+    /**
+     * Constructor 
+     */
     public ControlPersona() {
         this.personaDAO = new PersonaDAO(); // Inicializa personaDAO
     }
     
+    /**
+     * registra una persona en la base de datos con los metodos de la persistencia
+     * @param RFC
+     * @param nombreCompleto
+     * @param fechaNacimiento
+     * @param Telefono 
+     */
     public void RegistrarPersona(String RFC, String nombreCompleto,LocalDate fechaNacimiento, String Telefono){
         Persona per = new Persona();
         per.setRFC(RFC);

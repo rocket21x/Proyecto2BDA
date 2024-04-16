@@ -11,7 +11,10 @@ import java.util.List;
 import persistencia.ConexionBD;
 
 public class PlacasDAO {
-
+    /**
+     * 
+     * @param placas 
+     */
     public void insertarPlacas(Placas placas) {
         try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO Placas (NumeroPlacas, FechaEmision, FechaRecepcion, CostoTramite, TipoTramite, NumeroSerieAutomovil, RFCPersona) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
@@ -28,7 +31,10 @@ public class PlacasDAO {
             e.printStackTrace();
         }
     }
-
+    /**
+     * 
+     * @return 
+     */
     public List<Placas> obtenerTodasLasPlacas() {
         List<Placas> placasList = new ArrayList<>();
         try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM Placas")) {
@@ -50,7 +56,10 @@ public class PlacasDAO {
         }
         return placasList;
     }
-
+    /**
+     * 
+     * @param numeroSerieAutomovil 
+     */
     public void desactivarPlacasActuales(String numeroSerieAutomovil) {
         try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement(
                 "UPDATE Placas SET FechaRecepcion = ? WHERE NumeroSerieAutomovil = ? AND FechaRecepcion IS NULL")) {

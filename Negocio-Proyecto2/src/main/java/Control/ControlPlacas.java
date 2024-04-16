@@ -10,11 +10,17 @@ import java.util.Random;
 public class ControlPlacas {
     
     private final PlacasDAO placasDAO;
-    
+    /**
+     * 
+     */
     public ControlPlacas() {
         this.placasDAO = new PlacasDAO();
     }
-    
+    /**
+     * 
+     * @param rfcPersona
+     * @param numeroSerieAutomovil 
+     */
     public void solicitarNuevasPlacas(String rfcPersona, String numeroSerieAutomovil) {
         // Verificar si hay placas activas para el automóvil y desactivarlas si es necesario
         placasDAO.desactivarPlacasActuales(numeroSerieAutomovil);
@@ -29,7 +35,10 @@ public class ControlPlacas {
         Placas placas = new Placas(numeroPlacas, fechaEmision, null, BigDecimal.ZERO, "Nuevo", numeroSerieAutomovil, rfcPersona);
         placasDAO.insertarPlacas(placas);
     }
-    
+    /**
+     * 
+     * @return 
+     */
     private String generarNumeroPlacas() {
         // Generar tres letras aleatorias
         StringBuilder sb = new StringBuilder();
@@ -48,7 +57,10 @@ public class ControlPlacas {
         
         return sb.toString();
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public List<Placas> obtenerTodasLasPlacas() {
         return placasDAO.obtenerTodasLasPlacas();
     }

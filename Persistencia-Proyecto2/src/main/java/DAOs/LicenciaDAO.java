@@ -13,7 +13,10 @@ import persistencia.ConexionBD;
  * @author jesus
  */
 public class LicenciaDAO {
-
+    /**
+     * Registra una Licencia en la tabla de Licencias en la base de datos
+     * @param lic 
+     */
     public void RegistrarLicencia(Licencia lic) {
     try (Connection connection = ConexionBD.obtenerConexion(); 
          PreparedStatement statement = connection.prepareStatement(
@@ -38,7 +41,12 @@ public class LicenciaDAO {
     }
 }
 
-
+    /**
+     * Metodo para verificar si exite una Persona con ese 
+     *RFC en la tabla personas
+     * @param RFC
+     * @return 
+     */
     public boolean existePersonaConRFC(String RFC) {
     boolean existe = false;
     try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement("SELECT 1 FROM Persona WHERE RFC = ? LIMIT 1")) {
@@ -52,7 +60,11 @@ public class LicenciaDAO {
     return existe;
 }
 
-
+    /**
+     * 
+     * @param RFC
+     * @return 
+     */
     public Persona obtenerPersonaPorRFC(String RFC) {
         Persona persona = null;
         try (Connection connection = ConexionBD.obtenerConexion(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM Persona WHERE RFC = ?")) {
