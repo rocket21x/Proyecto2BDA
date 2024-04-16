@@ -147,6 +147,9 @@ public class MenuGUI extends javax.swing.JFrame {
 
     private void jMenuModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModuloActionPerformed
         // TODO add your handling code here:
+        AsignarPlacasGUI ap = new AsignarPlacasGUI();
+        ap.setVisible(true);
+        
     }//GEN-LAST:event_jMenuModuloActionPerformed
 
     private void MenuAsignarPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAsignarPlacasActionPerformed
