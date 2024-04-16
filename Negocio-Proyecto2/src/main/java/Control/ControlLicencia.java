@@ -3,6 +3,7 @@ package Control;
 import java.time.LocalDate;
 import DTOss.*;
 import DAOs.*;
+import java.math.BigDecimal;
 
 /**
  *
@@ -18,13 +19,15 @@ public class ControlLicencia {
     
     
     
-    public void RegistrarLicencia(String RFC,int vigencia, String tipo){
+    public void RegistrarLicencia(String RFC,int vigencia, String tipo,BigDecimal monto){
         Licencia lic = new Licencia();
         lic.setRFC(RFC);
         lic.setVigencia(vigencia);
         lic.setTipo(tipo);
+        lic.setMonto(monto);
         try {
             licenciaDAO.RegistrarLicencia(lic);
+            System.out.println("Licencia registrada");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al insetar licencia");

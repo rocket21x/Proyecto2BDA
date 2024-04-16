@@ -1,11 +1,15 @@
 package Formularios;
 
 import Control.ControlLicencia;
-import DTOss.Persona;
 
+import DTOss.Persona;
+import java.math.BigDecimal;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * El
+ *
  * @author jesus
  */
 public class RegistrarLicenciaGUI extends javax.swing.JFrame {
@@ -15,67 +19,98 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
      */
     public RegistrarLicenciaGUI() {
         initComponents();
+         setLocationRelativeTo(null); // Centrar en la pantalla
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Evitar cierre con el botón "X"
+        setResizable(false); // Desactivar la capacidad de cambiar el tamaño del JFrame
+        
     }
-    
-    
-    public void Registro(){
+
+    public void Registro() {
         String RFC = this.tfRFC.getText();
         int vigencia = this.cbVigencia.getSelectedIndex();
         String tipo = (String) this.cbTipo.getSelectedItem();
-        
+
+        // Obtiene el texto del JTextArea
+        String montoText = this.taCosto.getText();
+        if (montoText.trim().isEmpty()) {
+            // Mostrar advertencia
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese el monto antes de registrar la licencia.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; // Salir del método sin realizar el registro
+        }
+
+        // Intenta convertir el texto en un BigDecimal
+        BigDecimal monto = null;
+        try {
+            monto = new BigDecimal(montoText);
+        } catch (NumberFormatException e) {
+            // Si el texto no se puede convertir, muestra un mensaje de error
+            System.err.println("Error: el monto ingresado no es válido");
+            return; // Sale del método para evitar más procesamiento
+        }
+        if (montoText.trim().isEmpty()) {
+            // Mostrar advertencia
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese el monto antes de registrar la licencia.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; // Salir del método sin realizar el registro
+        }
+
         ControlLicencia cl = new ControlLicencia();
-        
+
         boolean exiterfc = cl.ValidarLicencia(RFC);
-        cl.RegistrarLicencia(RFC, vigencia, tipo);
+
+        if (exiterfc) {
             
-        
-//        if (exiterfc) {
-//            
-//            cl.RegistrarLicencia(RFC, vigencia, tipo);
-//            System.out.println("Licencia Registrada");
-//        }
-//        else{
-//            System.out.println("Licencia NO REGISTRADA");
-//        }
-        
+            cl.RegistrarLicencia(RFC, vigencia, tipo, monto);
+            System.out.println("Licencia Registrada");
+            JOptionPane.showMessageDialog(this, "La licencia ha sido registrada correctamente.", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCampos();
+        } else {
+            System.out.println("Licencia NO REGISTRADA");
+        }
 
     }
+
+    private void limpiarCampos() {
+        // Limpiar los campos estableciendo su texto en blanco o en sus valores predeterminados
+        tfRFC.setText("");
+        cbVigencia.setSelectedIndex(0); // Establecer la primera opción seleccionada
+        cbTipo.setSelectedIndex(0); // Establecer la primera opción seleccionada
+        taCosto.setText("");
+    }
+
     public void calcularCosto() {
-    int vigenciaIndex = this.cbVigencia.getSelectedIndex();
-    String tipo = (String) this.cbTipo.getSelectedItem();
-    
-    int costo = 0;
-    int costoNormal = 0;
-    int costoDiscapacitado = 0;
-    
-    switch (vigenciaIndex) {
-        case 0: // 1 Año
-            costoNormal = 600;
-            costoDiscapacitado = 200;
-            break;
-        case 1: // 2 Años
-            costoNormal = 900;
-            costoDiscapacitado = 500;
-            break;
-        case 2: // 3 Años
-            costoNormal = 1100;
-            costoDiscapacitado = 700;
-            break;
-        default:
-            break;
-    }
-    
-    if (tipo.equals("Normal")) {
-        costo = costoNormal;
-    } else if (tipo.equals("Discapacitado")) {
-        costo = costoDiscapacitado;
-    }
-    
-    // Mostrar el costo en el JTextArea taCosto
-    taCosto.setText("Costo: $" + costo);
-}
+        int vigenciaIndex = this.cbVigencia.getSelectedIndex();
+        String tipo = (String) this.cbTipo.getSelectedItem();
 
-    
+        int costo = 0;
+        int costoNormal = 0;
+        int costoDiscapacitado = 0;
+
+        switch (vigenciaIndex) {
+            case 0: // 1 Año
+                costoNormal = 600;
+                costoDiscapacitado = 200;
+                break;
+            case 1: // 2 Años
+                costoNormal = 900;
+                costoDiscapacitado = 500;
+                break;
+            case 2: // 3 Años
+                costoNormal = 1100;
+                costoDiscapacitado = 700;
+                break;
+            default:
+                break;
+        }
+
+        if (tipo.equals("Normal")) {
+            costo = costoNormal;
+        } else if (tipo.equals("Discapacitado")) {
+            costo = costoDiscapacitado;
+        }
+
+        // Mostrar el costo en el JTextArea taCosto
+        taCosto.setText(String.valueOf(costo));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,6 +173,11 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +279,11 @@ public class RegistrarLicenciaGUI extends javax.swing.JFrame {
         calcularCosto();
     }//GEN-LAST:event_btnCalcularActionPerformed
 
-    
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;

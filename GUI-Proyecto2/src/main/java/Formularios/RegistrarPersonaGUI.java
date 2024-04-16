@@ -6,6 +6,7 @@ import DTOss.Persona;
 import java.time.LocalDate;
 import java.util.Date;
 import DAOs.PersonaDAO;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,6 +19,10 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
      */
     public RegistrarPersonaGUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Evitar cierre con el botón "X"
+        setResizable(false); // Desactivar la capacidad de cambiar el tamaño del JFrame
+
     }
     public void Registro(){
         String RFC = this.tfRFC.getText();
@@ -37,6 +42,19 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
         
 
     }
+    public void limpiarCampos() {
+    // Limpiar el campo RFC
+    tfRFC.setText("");
+    
+    // Limpiar el área de texto para el monto
+    tfNombreCompleto.setText("");
+    
+    // Reiniciar la selección del ComboBox de vigencia
+    dpFechaNacimiento.setDate(null);
+    
+    // Reiniciar la selección del ComboBox de tipo
+    tfTelefono.setText("");
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,6 +109,11 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
 
         btnCancelar.setText("Cancelar");
         btnCancelar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -100,8 +123,8 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
             }
         });
 
-        btnvolver.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnvolver.setText("Volver");
+        btnvolver.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnvolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvolverActionPerformed(evt);
@@ -141,9 +164,9 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
                             .addComponent(tfRFC)
                             .addComponent(dpFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                             .addComponent(tfTelefono))))
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 283, Short.MAX_VALUE)
+                .addGap(0, 144, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(260, 260, 260))
         );
@@ -176,7 +199,7 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRegistrar)
                         .addComponent(btnvolver)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -198,6 +221,11 @@ public class RegistrarPersonaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnvolverActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
    
    

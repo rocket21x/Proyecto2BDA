@@ -62,10 +62,10 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="337" max="32767" attributes="0"/>
+              <EmptySpace pref="198" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="283" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="144" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="232" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
           </Group>
@@ -108,7 +108,7 @@
                       <Component id="btnvolver" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="109" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,6 +175,9 @@
           <Font name="SansSerif" size="14" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistrar">
       <Properties>
@@ -189,10 +192,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnvolver">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvolverActionPerformed"/>
