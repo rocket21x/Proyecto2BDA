@@ -15,18 +15,18 @@ public class ControlPlacas {
         this.placasDAO = new PlacasDAO();
     }
     
-    public void solicitarNuevasPlacas(Placas placas) {
+    public void solicitarNuevasPlacas(String rfcPersona, String numeroSerieAutomovil) {
         // Verificar si hay placas activas para el automóvil y desactivarlas si es necesario
-        placasDAO.desactivarPlacasActuales(placas.getNumeroSerieAutomovil());
+        placasDAO.desactivarPlacasActuales(numeroSerieAutomovil);
         
         // Generar número alfanumérico de seis caracteres para las nuevas placas
         String numeroPlacas = generarNumeroPlacas();
-        placas.setNumeroPlacas(numeroPlacas);
         
         // Establecer la fecha de emisión como la fecha actual
-        placas.setFechaEmision(new Date());
+        Date fechaEmision = new Date();
         
         // Insertar las nuevas placas en la base de datos
+        Placas placas = new Placas(numeroPlacas, fechaEmision, null, BigDecimal.ZERO, "Nuevo", numeroSerieAutomovil, rfcPersona);
         placasDAO.insertarPlacas(placas);
     }
     
