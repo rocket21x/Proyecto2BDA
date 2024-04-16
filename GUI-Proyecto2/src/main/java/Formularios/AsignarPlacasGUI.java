@@ -111,7 +111,7 @@ public class AsignarPlacasGUI extends javax.swing.JFrame {
         if (camposValidos()) {
             String rfc = txtRFC.getText();
             String numeroSerie = txtNumSerie.getText();
-            controlPlacas.solicitarNuevasPlacas(rfc, numeroSerie);
+            //controlPlacas.solicitarNuevasPlacas(rfc, numeroSerie);
             JOptionPane.showMessageDialog(this, "Solicitud de placas enviada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Por favor complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
