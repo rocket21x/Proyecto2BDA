@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Formularios;
+
+import Control.ControlPlacas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,24 +25,178 @@ public class AsignarPlacasGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnSolicitarPlacas = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        txtNumeroSerie = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtLinea = new javax.swing.JTextField();
+        txtColor = new javax.swing.JTextField();
+        txtNumeroPlacasAnteriores = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Asignar Placas");
+
+        jLabel2.setText("Marca");
+
+        jLabel3.setText("Numero Serie");
+
+        jLabel4.setText("Linea");
+
+        jLabel5.setText("Color");
+
+        jLabel6.setText("Modelo");
+
+        jLabel7.setText("Número Placas Anteriores");
+
+        btnSolicitarPlacas.setText("Solicitar Placas");
+        btnSolicitarPlacas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolicitarPlacasActionPerformed(evt);
+            }
+        });
+
+        jToggleButton1.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNumeroPlacasAnteriores, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                        .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtColor, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtLinea, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNumeroSerie, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSolicitarPlacas)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNumeroSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtLinea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtNumeroPlacasAnteriores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSolicitarPlacas)
+                    .addComponent(jToggleButton1))
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSolicitarPlacasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarPlacasActionPerformed
+        // Validar los campos del formulario
+    if (camposValidos()) {
+        // Obtener valores de los campos del formulario
+        String numeroSerie = txtNumeroSerie.getText();
+        String marca = txtMarca.getText();
+        String linea = txtLinea.getText();
+        String color = txtColor.getText();
+        int modelo = Integer.parseInt(txtModelo.getText());
+        String numeroPlacasAnteriores = txtNumeroPlacasAnteriores.getText();
+
+        // Enviar la solicitud de placas al sistema (usando la lógica de control adecuada)
+        ControlPlacas controlPlacas = new ControlPlacas();
+        // Aquí deberías llamar al método correspondiente en PlacasControl para solicitar las placas
+        
+        // Mostrar mensaje de confirmación
+        JOptionPane.showMessageDialog(this, "Solicitud de placas enviada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        // Mostrar mensaje de error si los campos no son válidos
+        JOptionPane.showMessageDialog(this, "Por favor complete todos los campos correctamente.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnSolicitarPlacasActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSolicitarPlacas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtLinea;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtNumeroPlacasAnteriores;
+    private javax.swing.JTextField txtNumeroSerie;
     // End of variables declaration//GEN-END:variables
+
+    private boolean camposValidos() {
+    // Verificar que los campos obligatorios estén llenos
+    if (txtNumeroSerie.getText().isEmpty() ||
+        txtMarca.getText().isEmpty() ||
+        txtLinea.getText().isEmpty() ||
+        txtColor.getText().isEmpty() ||
+        txtModelo.getText().isEmpty()) {
+        return false;
+    }
+
+    // Si el automóvil es usado, verificar que el campo de placas anteriores también esté lleno
+    if (!txtNumeroPlacasAnteriores.getText().isEmpty()) {
+        return true;
+    }
+
+    // Si el automóvil es nuevo, no se requiere el campo de placas anteriores
+    return true;
+}
+
 }
